@@ -8,16 +8,16 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <>
-      <MoviesContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route>
-              <Route path="/" Component={HomePage} />
-              <Route path="*" Component={NotFound} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </MoviesContextProvider>
+      {/* <MoviesContextProvider> */}
+      <BrowserRouter>
+        <Routes>
+          <Route>
+            <Route path="/" Component={HomePage} />
+            <Route path="*" Component={NotFound} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* </MoviesContextProvider> */}
     </>
   );
 }

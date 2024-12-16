@@ -5,31 +5,10 @@ const MoviesContext = createContext();
 
 // # EXPORT DEL PROVIDER
 export const MoviesContextProvider = ({ children }) => {
-  const isSearching = (e) => {
-    const inputValue = e.target.value;
-    const searchGlobaldata = {
-      ...globalData,
-      search: inputValue,
-    };
-
-    setGlobalData(searchGlobaldata);
-  };
-
-  const [globalData, setGlobalData] = useState({
-    movies: {
-      title: "",
-      original_title: "",
-      original_language: "",
-      vote_average: 0,
-    },
-    search: "",
-    isSearching,
-  });
-
-  console.log(globalData);
+  const [globalData, setGlobalData] = useState("");
 
   return (
-    <MoviesContext.Provider value={globalData}>
+    <MoviesContext.Provider value={[globalData, setGlobalData]}>
       {children}
     </MoviesContext.Provider>
   );
