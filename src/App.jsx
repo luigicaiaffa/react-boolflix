@@ -1,9 +1,22 @@
+import { GlobalContextProvider } from "./contexts/GlobalContext";
+
 function App() {
   return (
     <>
-      <div>
-        <h1>React Boolflix</h1>
-      </div>
+      <GlobalContextProvider>
+        <header>
+          <h1>Boolflix</h1>
+
+          <div>
+            <input type="text" />
+            <button>search</button>
+          </div>
+        </header>
+
+        <main>
+          <div></div>
+        </main>
+      </GlobalContextProvider>
     </>
   );
 }
