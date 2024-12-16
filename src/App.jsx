@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MoviesContextProvider } from "./contexts/MoviesContext";
+// import { MoviesContextProvider } from "./contexts/MoviesContext";
 
 // pages
 import HomePage from "./pages/HomePage";
@@ -11,10 +11,8 @@ function App() {
       {/* <MoviesContextProvider> */}
       <BrowserRouter>
         <Routes>
-          <Route>
-            <Route path="/" Component={HomePage} />
-            <Route path="*" Component={NotFound} />
-          </Route>
+          <Route path="/" Component={HomePage} />
+          <Route path="*" Component={NotFound} />
         </Routes>
       </BrowserRouter>
       {/* </MoviesContextProvider> */}

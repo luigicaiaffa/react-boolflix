@@ -2,13 +2,7 @@ import { useState } from "react";
 
 export default function HomePage() {
   const [globalData, setGlobalData] = useState({
-    movies: {
-      title: "",
-      original_title: "",
-      original_language: "",
-      vote_average: 0,
-    },
-
+    movies: [],
     search: "",
   });
 
@@ -32,31 +26,59 @@ export default function HomePage() {
   function handleFormSubmit(e) {
     e.preventDefault();
     fetchMoviesData();
-    setGlobalData({
-      ...globalData,
-      search: "",
-    });
   }
 
   function fetchMoviesData() {
     fetch(url, options)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        const searchedMovies = data.results;
+
+        const movies = searchedMovies.map((movie) => ({
+          title: movie.title,
+          original_title: movie.original_title,
+          original_language: movie.original_language,
+          vote_average: movie.vote_average,
+        }));
+
+        const searchedMoviesData = {
+          ...globalData,
+          search: "",
+          movies,
+        };
+
+        setGlobalData(searchedMoviesData);
+      });
   }
 
   return (
-    <div className="container py-5">
-      <h1>Boolflix</h1>
-      <div>
-        <form onSubmit={handleFormSubmit}>
-          <input
-            type="text"
-            value={globalData.search}
-            onChange={handleInputChange}
-          />
-          <button>search</button>
-        </form>
-      </div>
-    </div>
+    <>
+      <header>
+        <h1>Boolflix</h1>
+        <div>
+          <form onSubmit={handleFormSubmit}>
+            <input
+              type="text"
+              value={globalData.search}
+              onChange={handleInputChange}
+            />
+            <button>search</button>
+          </form>
+        </div>
+      </header>
+
+      <main>
+        {globalData.movies.map((movie, index) => {
+          return (
+            <ul key={index}>
+              <li>{movie.title}</li>
+              <li>{movie.original_title}</li>
+              <li>{movie.original_language}</li>
+              <li>{movie.vote_average}</li>
+            </ul>
+          );
+        })}
+      </main>
+    </>
   );
 }
