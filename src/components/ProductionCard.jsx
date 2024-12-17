@@ -5,6 +5,12 @@ export default function ProductionCard({ production }) {
       return lang.toUpperCase();
     }
 
+    function posterUrlFormatter(path) {
+      const apiUrl = `https://image.tmdb.org/t/p`;
+      const imgDim = `/w342`;
+      return apiUrl + imgDim + path;
+    }
+
     return (
       <ul key={production.id}>
         <li>
@@ -32,6 +38,7 @@ export default function ProductionCard({ production }) {
         <li>
           <strong>Poster: </strong>
           {production.poster_path}
+          <img src={posterUrlFormatter(production.poster_path)} alt="" />
         </li>
       </ul>
     );
