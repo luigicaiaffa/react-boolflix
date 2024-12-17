@@ -74,34 +74,24 @@ export default function ProductionCard({ production }) {
   }
 
   return (
-    <ul key={production.id}>
-      <li>
-        <strong>Titolo: </strong>
-        {production.title}
-      </li>
-      <li>
-        <strong>Titolo originale: </strong>
-        {production.original_title}
-      </li>
-      <li>
-        <strong>Lingua: </strong>
-        {production.original_language}
+    <div className="col-md-6 col-lg-4">
+      <div className="card text-bg-dark">
         <img
-          src={`https://flagsapi.com/${langFormatter(
-            production.original_language
-          )}/flat/64.png`}
-          alt=""
+          src={posterUrlFormatter(production.poster_path)}
+          className="card-img"
+          alt="..."
         />
-      </li>
-      <li>
-        <strong>Voto: </strong>
-        {voteStarsFormatter(production.vote_average)}
-      </li>
-      <li>
-        <strong>Poster: </strong>
-        {production.poster_path}
-        <img src={posterUrlFormatter(production.poster_path)} alt="" />
-      </li>
-    </ul>
+        <div className="card-img-overlay text-align-center">
+          <h5 className="card-title">Card title</h5>
+          <p className="card-text">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+          </p>
+          <p className="card-text">
+            <small>Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -9,13 +9,15 @@ export default function Main() {
   return (
     <main>
       <div className="container">
-        <section>
+        <section className="mt-4">
           <h2>Film</h2>
+
           <ProductionList productions={movies} />
         </section>
 
-        <section>
+        <section className="mt-4">
           <h2>Serie TV</h2>
+
           <ProductionList productions={series} />
         </section>
       </div>
