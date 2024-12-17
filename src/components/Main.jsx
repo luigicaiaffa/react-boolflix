@@ -9,14 +9,14 @@ export default function Main() {
   return (
     <main>
       <div className="container">
-        <section className="mt-4">
-          <h2>Film</h2>
+        <section className="mt-5">
+          <h1>Film</h1>
 
           <ProductionList productions={movies} />
         </section>
 
-        <section className="mt-4">
-          <h2>Serie TV</h2>
+        <section className="my-5">
+          <h1>Serie TV</h1>
 
           <ProductionList productions={series} />
         </section>
