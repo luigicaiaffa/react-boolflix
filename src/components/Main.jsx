@@ -8,7 +8,7 @@ export default function Main() {
 
   return (
     <main>
-      <div>
+      <div className="container">
         <section>
           <h2>Film</h2>
           <ProductionList productions={movies} />
