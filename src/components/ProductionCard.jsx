@@ -74,22 +74,40 @@ export default function ProductionCard({ production }) {
   }
 
   return (
-    <div className="col-md-6 col-lg-4">
+    <div className="col-md-6 col-xxl-4">
       <div className="card text-bg-dark">
         <img
           src={posterUrlFormatter(production.poster_path)}
           className="card-img"
           alt="..."
         />
-        <div className="card-img-overlay text-align-center">
-          <h5 className="card-title">Card title</h5>
+        <div className="card-img-overlay">
+          <h5 className="card-title">
+            <b>{production.title}</b>
+          </h5>
+
+          <span>
+            <b>Titolo originale: </b>
+            {production.original_title}
+          </span>
+
           <p className="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            <b>Trama: </b>
+            {production.overview}
           </p>
-          <p className="card-text">
-            <small>Last updated 3 mins ago</small>
-          </p>
+
+          <div className="py-2 text-warning">
+            {voteStarsFormatter(production.vote_average)}
+          </div>
+
+          <div>
+            <img
+              src={`https://flagsapi.com/${langFormatter(
+                production.original_language
+              )}/flat/64.png`}
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>

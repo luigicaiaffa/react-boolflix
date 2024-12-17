@@ -1,0 +1,9 @@
+.card-img-overlay {
+    display: none;
+    cursor: pointer;
+}
+
+.card:hover > .card-img-overlay {
+    background-color: #212529;
+    display: block;
+}

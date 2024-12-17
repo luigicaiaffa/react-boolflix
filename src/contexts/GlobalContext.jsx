@@ -35,6 +35,7 @@ export const GlobalContextProvider = ({ children }) => {
           original_language: movie.original_language,
           vote_average: movie.vote_average,
           poster_path: movie.poster_path,
+          overview: movie.overview,
         }));
 
         setGlobalData((globalData) => ({
@@ -58,6 +59,7 @@ export const GlobalContextProvider = ({ children }) => {
           original_language: serie.original_language,
           vote_average: serie.vote_average,
           poster_path: serie.poster_path,
+          overview: serie.overview,
         }));
 
         setGlobalData((globalData) => ({
